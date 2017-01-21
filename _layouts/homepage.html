@@ -1,0 +1,32 @@
+{{>header.inc {extracss:'home'} }}
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	{{{content}}}
+            	<hr/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	<h2>Recent Posts</h2>
+            	{{#blog @{len:3} }}
+                <div class="post-preview">
+                    <a href="/{{uri}}">
+                        <h2 class="post-title">{{title}}</h2>
+                        <h3 class="post-subtitle">{{subtitle}}</h3>
+                    </a>
+                    <p class="post-meta">Posted by <a href="{{author_url}}">{{author}}</a> on {{date.formatted}}</p>
+                </div>
+                <hr>{{/blog}}
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="/blog/">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{{>footer.inc}}
