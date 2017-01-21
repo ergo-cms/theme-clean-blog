@@ -26,7 +26,7 @@ There are two partial files that are included, that may be overridden easily:
 ## The easy installation
 
 ```
-ergo theme install sbs_clean_blog
+ergo theme install clean-blog
 ```
 
 This will download and install the theme into the _themes folder and set it is as the current one. You can then rebuild your site with (a 'clean' is always recommended when switching themes):
@@ -39,10 +39,10 @@ ergo build --clean
 
 If you prefer to do things manually to install a theme, then follow these instructions.
 
-Download and extract this theme into your `_themes` folder as 'sbs_clean_blog' and then edit your `config.ergo.js` file and change the setting theme to:
+Download and extract this theme into your `_themes` folder as 'clean-blog' and then edit your `config.ergo.js` file and change the setting theme to:
 
 ```
-	theme = 'sbs_clean_blog',
+	theme = 'clean-blog',
 ```
 
 Note that you may choose whatever folder name you like.
