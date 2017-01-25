@@ -11,15 +11,15 @@
         {{/list_hide_content}}	
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            	{{#dynamic_list}}
+            	{{#dynamic_list}}<h2 id="{{key}}" class="post-title">{{key}}</h2>{{#value}}
                 <div class="post-preview">
-                	{{^first}}<hr/>{{/first}}
+                	{{^isFirst}}<hr/>{{/isFirst}}
                     <a href="/{{uri}}">
                     	<h3>{{title}}</h3>
                         <h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
                     </a>
                     <p class="post-meta">Posted by <a href="{{author_url}}">{{author}}</a> on {{date.formatted}}</p>
-                </div>
+                </div>{{/value}}
                 {{/dynamic_list}}
                 <!-- Pager -->
                 <!-- 

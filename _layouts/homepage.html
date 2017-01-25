@@ -5,27 +5,46 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             	{{{content}}}
-            	<hr/>
             </div>
         </div>
+        {{^hide_featured_posts}}
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            	<h2>Recent Posts</h2>
-            	{{#blog @{len:3} }}
-                <div class="post-preview">
-                    <a href="/{{uri}}">
-                        <h2 class="post-title">{{title}}</h2>
-                        <h3 class="post-subtitle">{{subtitle}}</h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="{{author_url}}">{{author}}</a> on {{date.formatted}}</p>
-                </div>
-                <hr>{{/blog}}
-                <!-- Pager -->
+        	{{#featured}}
+            
+	                <div class="thumbnail post-preview">
+	                    <a href="/{{uri}}">
+                        	{{#image}}<img src="/images/{{image}}">{{/image}}
+	                        <h3>{{title}}</h3>
+                       		<h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
+	                    </a>
+	                        <p class="post-meta">Posted by <a href="{{author_url}}#{{author}}">{{author}}</a> on {{date.formatted}}
+							</p>
+	                </div>
+	    	{{/featured}}
+	    </div></div>{{/hide_featured_posts}}
+        {{^hide_popular_posts}}
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	<div class="row">{{#popular}}
+	            <div class="col-md-6 col-xs-10">
+	                <div class="thumbnail post-preview">
+	                    <a href="/{{uri}}">
+                        	{{#image}}<img src="/images/{{image}}">{{/image}}
+	                        <h3>{{title}}</h3>
+                       		<h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
+	                    </a>
+	                        <p class="post-meta">Posted by <a href="{{author_url}}#{{author}}">{{author}}</a> on {{date.formatted}}
+							</p>
+	                </div>
+	            </div>{{/popular}}
+	    </div></div></div>{{/hide_popular_posts}}
+                <!-- Pager 
                 <ul class="pager">
                     <li class="next">
-                        <a href="/blog/">Older Posts &rarr;</a>
+                        <a href="{{posts_url}}">Older Posts &rarr;</a>
                     </li>
-                </ul>
+                </ul>-->
             </div>
         </div>
     </div>

@@ -8,14 +8,17 @@ This theme provides the following layout files, which are commonly available for
 
 * homepage.html. Use this layout by making sure the following line is in the header area of your home page (typically @/index.tex@):
 
-bc. layout = homepage.html
+```
+layout = homepage.html
+```
 
 * page.html. This is the 'default' page for all pages that aren't part of a blog. They are your standard pages (like, about.html, etc).
 * post.html. This is the page that is used in blog posts. It has features such an author, date and provides a Disqus comments area.
 * list.html. This page is used for building pages that have 'lists of things', such as a list of blog posts. The [default ergo skeleton package](https://ergo-cms/ergo-skel) uses this page in @/blog/index.tex@, by setting the following fields in it's header area:
-
 bc. layout = list.html
 list_type = blog
+
+* keyed_list.html. Similar to above `list.html`, but this page builds a '2-tier list of things', such as categories or tags.
 
 There are two partial files that are included, that may be overridden easily:
 
