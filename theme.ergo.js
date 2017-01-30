@@ -14,6 +14,14 @@ module.exports = {
 		categories_url: '/categories.html',
 		feed_url: '/rss.xml',
 		//posts_url: '/blog.html',
+		
+		// gracefully accept paginate plugin support
+		auto_paginate: function(list, params, list_name) { 
+			if (!!this.paginate) 
+				return this.paginate.call(this, list, params, list_name);
+			else
+				return list; // do nothing, if paginate not available
+			},
 	}
 };
 

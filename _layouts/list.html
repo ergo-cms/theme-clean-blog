@@ -11,9 +11,9 @@
         {{/list_hide_content}}	
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            	{{#dynamic_list}}
+            	{{#dynamic_list @auto_paginate}}
                 <div class="post-preview">
-                	{{^first}}<hr/>{{/first}}
+                	{{^isFirst}}<hr/>{{/isFirst}}
                     <a href="/{{uri}}">
                     	<h3>{{title}}</h3>
                         <h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
@@ -22,13 +22,16 @@
                 </div>
                 {{/dynamic_list}}
                 <!-- Pager -->
-                <!-- 
-					<hr>
-                	<ul class="pager">
-                    <li class="next">
-                        <a href="/blog/">Older Posts &rarr;</a>
-                    </li>
-                </ul>-->
+{{#paginated}}
+	<ul class="pagination">
+		{{#first}}<li><a href="/{{uri}}">&laquo;</a></li>{{else}}<li class="disabled"><a href="#">&laquo;</a></li>{{/first}}
+		{{#prev}}<li><a href="/{{uri}}">&lsaquo;</a></li>{{else}}{{#paginate_nextprev}}<li class="disabled"><a href="#">&lsaquo;</a></li>{{/paginate_nextprev}}{{/prev}}
+		{{#item}}
+		<li {{#active}}class="active"{{/active}}><a href="/{{uri}}">{{page}}</a></li>{{/item}}
+		{{#next}}<li><a href="/{{uri}}">&rsaquo;</a></li>{{else}}{{#paginate_nextprev}}<li class="disabled"><a href="#">&rsaquo;</a></li>{{/paginate_nextprev}}{{/next}}
+		{{#last}}<li><a href="/{{uri}}">&raquo;</a></li>{{else}}<li class="disabled"><a href="#">&raquo;</a></li>{{/last}}
+	</ul>
+{{/paginated}}
             </div>
         </div>
     </div>
