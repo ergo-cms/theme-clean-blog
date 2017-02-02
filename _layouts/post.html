@@ -7,6 +7,16 @@
                 	{{{content}}}
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				{{#categories}}{{#. @split}}<a href="{{categories_url}}#{{.}}" class="label  label-default small">{{.}}</a> {{/.}}{{/categories}}
+				{{#tags}}{{#. @split}}<a href="{{tags_url}}#{{.}}" class="label  label-default small">{{.}}</a> {{/.}} {{/tags}}
+				<br/><br/>
+                </div>
+            </div>
+
+
 	{{#has_nextprev}}<!--nextprev plugin-->
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="margin-bottom:2em">
