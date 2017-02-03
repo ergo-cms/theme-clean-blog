@@ -14,7 +14,7 @@
             
 	                <div class="thumbnail post-preview">
 	                    <a href="/{{uri}}">
-                        	{{#image}}<img src="/images/{{image}}">{{/image}}
+                        	{{#image}}<img src="/images/{{image #safe_thumb{w:512} }}" srcset="{{image #safe_srcset{w:'512,800'} }}" sizes="100vw">{{/image}}
 	                        <h3>{{title}}</h3>
                        		<h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
 	                    </a>
@@ -30,7 +30,7 @@
 	            <div class="col-md-6 col-xs-10">
 	                <div class="thumbnail post-preview">
 	                    <a href="/{{uri}}">
-                        	{{#image}}<img src="/images/{{image}}">{{/image}}
+                        	{{#image}}<img src="/images/{{image #safe_thumb{w:512} }}" srcset="{{image #safe_srcset{w:'512,800'} }}" sizes="(max-width:980px) 75vw, 380px">{{/image}}
 	                        <h3>{{title}}</h3>
                        		<h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
 	                    </a>

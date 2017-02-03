@@ -11,18 +11,22 @@
         {{/list_hide_content}}	
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            	{{#dynamic_list @auto_paginate}}
-                <div class="post-preview">
-                	{{^isFirst}}<hr/>{{/isFirst}}
-                    <a href="/{{uri}}">
-                    	<h3>{{title}}</h3>
-                        <h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
-                    </a>
-                    <p class="post-meta">Posted by <a href="{{author_url}}">{{author}}</a> on {{date.formatted}}</p>
-                </div>
-                {{/dynamic_list}}
+            	<div class="row">{{#dynamic_list @auto_paginate}}
+	            <div class="col-sm-6 col-xs-12">
+	                <div class="thumbnail post-preview">
+	                    <a href="/{{uri}}">
+                        	{{#image}}<img src="/images/{{image #safe_thumb{w:512} }}" srcset="{{image #safe_srcset{w:'512,800'} }}" sizes="(max-width:768px) 100vw, 380px">{{/image}}
+	                        <h3>{{title}}</h3>
+                       		<h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
+	                    </a>
+	                        <p class="post-meta">Posted by <a href="{{author_url}}#{{author}}">{{author}}</a> on {{date.formatted}}
+							</p>
+	                </div>
+	            </div>
+                {{/dynamic_list}}</div>
                 <!-- Pager -->
 {{#paginated}}
+	<hr/>
 	<ul class="pagination">
 		{{#first}}<li><a href="/{{uri}}">&laquo;</a></li>{{else}}<li class="disabled"><a href="#">&laquo;</a></li>{{/first}}
 		{{#prev}}<li><a href="/{{uri}}">&lsaquo;</a></li>{{else}}{{#paginate_nextprev}}<li class="disabled"><a href="#">&lsaquo;</a></li>{{/paginate_nextprev}}{{/prev}}

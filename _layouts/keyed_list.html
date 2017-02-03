@@ -9,7 +9,7 @@
             </div>
         </div>
         {{/list_hide_content}}	
-        <div class="row">
+        <div id="_top" class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="text-align:center">
         		{{#dynamic_list}}
 			<a href="#{{key}}" class="button small">{{key}} <span class="badge">{{value.length}}</span></a>&nbsp;&nbsp;
@@ -19,16 +19,20 @@
 
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            	{{#dynamic_list @auto_paginate }}<h2 id="{{key}}" class="post-title">{{key}}</h2>{{#value}}
-                <div class="post-preview">
-                	{{^isFirst}}<hr/>{{/isFirst}}
-                    <a href="/{{uri}}">
-                    	<h3>{{title}}</h3>
-                        <h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
-                    </a>
-                    <p class="post-meta">Posted by <a href="{{author_url}}">{{author}}</a> on {{date.formatted}}</p>
-                </div>{{/value}}
-                {{/dynamic_list}}
+            	{{#dynamic_list @auto_paginate }}
+            	<div class="row"><h2 id="{{key}}" class="post-title"><a href="#_top" >{{key}}</a></h2>{{#value}}
+                <div class="col-sm-6 col-xs-12">
+	                <div class="thumbnail post-preview">
+	                    <a href="/{{uri}}">
+                        	{{#image}}<img src="/images/{{image #safe_thumb{w:512} }}" srcset="{{image #safe_srcset{w:'512,800'} }}" sizes="(max-width:768px) 100vw, 380px">{{/image}}
+	                        <h3>{{title}}</h3>
+                       		<h4>{{^subtitle}}{{metadesc}}{{/subtitle}}{{subtitle}}</h4>
+	                    </a>
+	                        <p class="post-meta">Posted by <a href="{{author_url}}#{{author}}">{{author}}</a> on {{date.formatted}}
+							</p>
+	                </div>
+	            </div>{{/value}}
+                </div>{{/dynamic_list}}
                 <!-- Pager -->
 {{#paginated}}
 	<ul class="pagination">
